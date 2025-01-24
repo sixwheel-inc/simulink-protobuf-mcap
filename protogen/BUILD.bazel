@@ -1,0 +1,24 @@
+load("//:requirements.bzl", "requirement")
+load("@rules_python//python:defs.bzl", "py_library")
+
+py_library(
+    name = "matlab_helpers",
+    srcs = [
+        "matlab_helpers.py",
+    ],
+    deps = [
+        requirement("matlabengine"),
+    ],
+)
+
+py_library(
+    name = "generation",
+    srcs = [
+        "cpp_generation.py",
+        "order_busses.py",
+        "pbtools_generation.py",
+        "proto_generation.py",
+    ],
+    visibility = ["//visibility:public"],
+)
+

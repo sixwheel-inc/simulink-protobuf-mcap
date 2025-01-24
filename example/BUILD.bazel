@@ -1,0 +1,14 @@
+
+load("@rules_python//python:defs.bzl", "py_binary")
+
+py_binary(
+    name = "generate_example_bindings",
+    srcs = ["generate_example_bindings.py"],
+    visibility = ["//visibility:public"],
+    data = ["example_busses.mat"],
+    deps = [
+        "//protogen:generation",
+        "//protogen:matlab_helpers",
+    ],
+)
+
